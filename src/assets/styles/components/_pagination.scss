@@ -1,0 +1,32 @@
+.Pagination {
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto 50% auto;
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin: 15px 0;
+    grid-template-areas: "goToPreviousPage currentPage goToNextPage" "goToPreviousPage positionListPagesNumbers goToNextPage ";
+}
+.currentPage {
+    grid-area: currentPage;
+}
+.positionListPagesNumbers {
+    grid-area: positionListPagesNumbers;
+}
+.goToPreviousPage {
+    grid-area: goToPreviousPage;
+}
+.goToNextPage {
+    grid-area: goToNextPage;
+}
+.Pagination ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+.active {
+    background-color: darkgoldenrod;
+}

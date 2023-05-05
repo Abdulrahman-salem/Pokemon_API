@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+p {
+    color: #ffffff;
+}
+ul {
+    list-style: none;
+}
+
+header {
+    padding: 20px;
+}
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
