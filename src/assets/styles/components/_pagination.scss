@@ -1,3 +1,4 @@
+@use '../abstracts/' as *;
 .Pagination {
     width: 70%;
     display: grid;
@@ -7,7 +8,7 @@
     justify-items: center;
     align-items: center;
     margin: 15px 0;
-    grid-template-areas: "goToPreviousPage currentPage goToNextPage" "goToPreviousPage positionListPagesNumbers goToNextPage ";
+    grid-template-areas: "goToPreviousPage positionListPagesNumbers goToNextPage" "goToPreviousPage positionListPagesNumbers goToNextPage ";
 }
 .currentPage {
     grid-area: currentPage;
@@ -15,10 +16,10 @@
 .positionListPagesNumbers {
     grid-area: positionListPagesNumbers;
 }
-.goToPreviousPage {
+.btn-previous-page {
     grid-area: goToPreviousPage;
 }
-.goToNextPage {
+.btn-next-page {
     grid-area: goToNextPage;
 }
 .Pagination ul {
@@ -28,5 +29,51 @@
     justify-content: center;
 }
 .active {
-    background-color: darkgoldenrod;
+    background-color: $activePageNumber-color;
+}
+.pageFromPositionListPagesNumbers, .active {
+    padding: 2px;    
+    font-weight: bold;
+    padding: 5px;
+}
+.pageFromPositionListPagesNumbers{
+    background-color: $pageNumbers-background;
+    color: $pageNumbers-color;
+}
+.btn-list-pages{
+    background: linear-gradient(to bottom, #eb8fa963, #eb8fa900 ), linear-gradient(to top, #222222, #eb8fa900 );
+    border-radius: 50px;
+}
+.btn-previous-page, .btn-next-page{
+    border-radius: 100px 100px 56px 56px;
+}
+.btn-previous-page:hover{
+    animation: previous-page  2s infinite ;
+} 
+.btn-next-page:hover{
+    animation: next-page  2s infinite ;
+}
+@keyframes next-page {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+        box-shadow: inset -20px 0px 20px -7px #ffce29;
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+@keyframes previous-page {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+        box-shadow: inset 20px 0px 20px -7px #ffce29;
+    }
+    100%{
+        transform: scale(1);
+    }
 }

@@ -1,0 +1,7 @@
+@use "../abstracts/variables" as *;
+
+body {
+    // background: $home-background-img center center / cover no-repeat fixed;
+    background: url("../../images/particlesjs-examples.gif") center center /
+        cover no-repeat fixed;
+}

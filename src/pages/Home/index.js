@@ -65,7 +65,7 @@ const Home = () => {
 
             // console.log(response.data);
             // console.log(response.data.results.length);
-            console.log(response.data);
+            // console.log(response.data);
             return setAllDataOfPokemon(response.data);
             // setAllPokemonList(response.data.results);
         };
@@ -102,7 +102,7 @@ const Home = () => {
 
     return (
         <>
-            <header>hi</header>
+            {/* <header>hi</header> */}
             <main>
                 {/* {console.log(allDataPokemon.results)} */}
                 {allDataOfPokemon.results ? (

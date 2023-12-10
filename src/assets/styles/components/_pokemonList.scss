@@ -1,3 +1,4 @@
+@use '../abstracts/' as *;
 .PokemonList {
     width: 100%;
     display: flex;
@@ -10,9 +11,28 @@
 }
 .PokemonList li {
     width: 100%;
-    background-color: rgb(97, 43, 43);
+    // background-color: rgb(97, 43, 43);
     margin: 10px 0 15px;
+    display: flex;
+    /* From https://css.glass */
+    background: $PokemonListLi-background;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    // -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgb(255, 255, 255, 1);
+    padding: 0;
+    overflow: hidden;
+    
+}
+p{
+    text-transform: capitalize;
+    color: white;
+}
+.pokemonLink {
     padding: 30px;
+    width: 100%;
     display: flex;
     justify-content: center;
+    text-decoration: none;
 }

@@ -1,46 +1,48 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { getData } from "../../axios";
+import { Link, Outlet } from "react-router-dom";
+// import Pokemon from "../../pages/Pokemon";
+// import { getData } from "../../axios";
+// import Pokemon from "../../pages/Pokemon";
 
 const PokemonList = ({ pokemonList }) => {
     // console.log(pokemonList);
 
-    const goToThisPokemon = (e,url) => {
+    const goToThisPokemon = (e, url, pokemonName) => {
         e.preventDefault();
         console.log(url);
-        // e.target.link()
+        console.log(`/pokemon/${pokemonName}`);
     };
 
-    let i = 0
     return (
         <section className="PokemonList">
             <ul>
-                {
-                pokemonList.map((pokemon) => {
-                    
+                {pokemonList.map((pokemon) => {
                     return (
-                        // <Link to={pokemon.url}>
-                        <li key={pokemon.name} onClick={(e)=>goToThisPokemon( e, pokemon.url)}>
-                            {/* <img src={} alt="" width={50}/> */}
+                        <li
+                            key={pokemon.name}
+                            onClick={(e) =>
+                                goToThisPokemon(e, pokemon.url, pokemon.name)
+                            }
+                            >
                             {/* {console.log(pokemon)} */}
-                            {/* {console.log(pokemon.url)} */}
+                            <Link to={`pokemon/${pokemon.name}`} state={pokemon} className="pokemonLink" >
+                            {/* <Link to={<Pokemon pokemon={pokemon}/>} state={pokemon} > */}
+                                {/* <img src={} alt="" width={50}/> */}
+                                {/* {console.log(pokemon.url)} */}
 
-                            <p>
-                                {pokemon.name}
-                                </p>
-                            {/* <p>{i}</p> */}
-                            {/* {i=i+1} */}
+                                <p>{pokemon.name}</p>
+                                {/* <p>{i}</p> */}
+                                {/* {i=i+1} */}
+                            </Link>
                         </li>
-                        // </Link>
                     );
-                })
-                }
+                })}
             </ul>
             {/* <ul >
                 {pokemonList.map((pokemon) => {
                     return <li><p>{pokemon.url}</p></li>;
                 })}
             </ul> */}
+            <Outlet />
         </section>
     );
 };

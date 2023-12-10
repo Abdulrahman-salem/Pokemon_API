@@ -1,23 +1,23 @@
 // abstracts
-@import './abstracts/__abstracts-dir';
+@use 'abstracts';
 
 // base
-@import './base/__base-dir';
+@use 'base';
 
 // components
-@import './components/__components-dir';
+@use 'components';
 
 // layout
-@import './layout/__layout-dir';
+@use 'layout';
 
 // pages
-@import './pages/__pages-dir';
+@use 'pages';
 
 // themes
-@import './themes/__themes-dir';
+@use 'themes';
 
 // vendors
-@import './vendors/__vendors-dir';
+@use 'vendors';
 
 
 

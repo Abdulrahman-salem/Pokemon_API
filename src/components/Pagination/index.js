@@ -20,7 +20,7 @@ const Pagination = ({ list, onClick }) => {
             getAllPageNumbers.push(i);
         }
         return setAllPageNumbers(getAllPageNumbers);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const goToPreviousPage = (e) => {
@@ -54,16 +54,16 @@ const Pagination = ({ list, onClick }) => {
             return;
         }
 
-        // handle click on the first 3 child 
+        // handle click on the first 3 child
         // if the pageNumber less than 3 reset previousList to 0 else add 1 to previousList
         //
-        // handle click on the last 2 child 
+        // handle click on the last 2 child
         // if the pageNumber + 2 (last two child) was equal to totalPages than reset previousList to totalPages - list.numberOfListNumbersPerPage ( 129 - 5 = add 124 to previousList => show last 5 child)
         // setPreviousList(
-        //     pageNumber - 3 < 0 
+        //     pageNumber - 3 < 0
         //         ? 0
-        //             : pageNumber + 2 >= totalPages 
-        //             ? totalPages-list.numberOfListNumbersPerPage 
+        //             : pageNumber + 2 >= totalPages
+        //             ? totalPages-list.numberOfListNumbersPerPage
         //         : pageNumber - 3
         // );
 
@@ -74,7 +74,7 @@ const Pagination = ({ list, onClick }) => {
         if (previousList <= 0) {
             return alert("this is first List");
         }
-        // Handle if there are less number of children than required then reset the previousList to 0 
+        // Handle if there are less number of children than required then reset the previousList to 0
         // the required number come from list.numberOfListNumbersPerPage
         // if (previousList <= list.numberOfListNumbersPerPage) {
         //     setTimeout(() => {
@@ -100,7 +100,9 @@ const Pagination = ({ list, onClick }) => {
                 <li key={pageNumber}>
                     <button
                         className={
-                            (list.currentPage === pageNumber ? `active` : "") +
+                            (list.currentPage === pageNumber
+                                ? `active`
+                                : "pageFromPositionListPagesNumbers") +
                             (pageNumber === totalPages
                                 ? " last-number-in-the-list"
                                 : "")
@@ -117,15 +119,14 @@ const Pagination = ({ list, onClick }) => {
     };
     return (
         <section className="Pagination">
-            
-
-                <h2 className="currentPage">{list.currentPage}</h2>
+            {/* <h2 className="currentPage">{list.currentPage}</h2> */}
             <article className="positionListPagesNumbers">
                 <ul>
                     <li>
                         <img
                             src="https://img.icons8.com/ios/1x/ellipsis.png"
-                            alt=""
+                            alt="previous list pages"
+                            className="btn-list-pages"
                             width={30}
                             onClick={goToThePreviousList}
                         />
@@ -134,7 +135,8 @@ const Pagination = ({ list, onClick }) => {
                     <li>
                         <img
                             src="https://img.icons8.com/ios/1x/ellipsis.png"
-                            alt=""
+                            alt="next list pages"
+                            className="btn-list-pages"
                             width={30}
                             onClick={goToTheNextList}
                         />
@@ -142,20 +144,22 @@ const Pagination = ({ list, onClick }) => {
                 </ul>
             </article>
 
-            <button onClick={goToPreviousPage} className="goToPreviousPage">
-                <img
-                    src="https://img.icons8.com/arcade/512/circled-left.png"
-                    alt="back page"
-                    width={50}
-                />
-            </button>
-            <button onClick={goToNextPage} className="goToNextPage">
-                <img
-                    src="https://img.icons8.com/arcade/512/circled-right.png"
-                    alt="next page"
-                    width={50}
-                />
-            </button>
+            <img
+                src="https://img.icons8.com/arcade/512/circled-left.png"
+                alt="Previous page"
+                onClick={goToPreviousPage}
+                className="btn-previous-page"
+                // className="Previous-page"
+                width={50}
+            />
+            <img
+                src="https://img.icons8.com/arcade/512/circled-right.png"
+                alt="next page"
+                onClick={goToNextPage}
+                className="btn-next-page"
+                // className=""
+                width={50}
+            />
         </section>
     );
 };
